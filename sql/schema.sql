@@ -1,0 +1,43 @@
+CREATE TABLE planets (
+    id serial PRIMARY KEY,
+    name text NOT NULL,
+    slug text NOT NULL,
+    canon boolean,
+    region text,
+    sector text,
+    grid text,
+    moons int,
+    climate text,
+    gravity text,
+    len_day int,
+    len_year int,
+    pop_density text,
+    capital text,
+    description text,
+    exports text,
+    imports text,
+    key_locations text,
+    sources text,
+    img_url text,
+    wookie_url text
+);
+
+CREATE TABLE races (
+    id serial PRIMARY KEY,
+    name text NOT NULL,
+    slug text NOT NULL,
+    canon boolean,
+    homeworld_name text REFERENCES planets(name) on delete cascade,
+    phys_descritption text,
+    personality text,
+    era_notes text,
+    notable_members text,
+    a_mod_str int,
+    a_mod_dex int,
+    a_mod_chr int,
+    a_mod_con int,
+    a_mod_int int,
+    a_mod_wis int,
+    wookie_url text,
+    img_url text
+);
